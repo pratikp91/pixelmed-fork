@@ -472,6 +472,7 @@
 				<definedterm value="LEG"/>
 				<definedterm value="ARM"/>
 				<definedterm value="JAW"/>
+				<definedterm value="PROSTATE"/>
 			</definedtermslist>
 		</attribute>
 		<attribute name="PatientPosition"				vr="CS" type="2C" vmmin="1" vmmax="1" condition="count(PatientOrientationCodeSequence) = 0 and (Modality/value[@number=1]='CT' or Modality/value[@number=1]='MR')" mbpo="T">
