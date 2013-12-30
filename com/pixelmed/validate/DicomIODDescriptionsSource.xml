@@ -143,6 +143,59 @@
 		<invokemodule name="SOPCommonModule"				type="M"/>
 	</defineiod>
 
+	<defineiod name="LegacyConvertedEnhancedMRImage" sopclass="1.2.840.10008.5.1.4.1.1.4.4">
+		<invokemodule name="FileMetaInformationModule"			type="M"/>
+		<invokemodule name="PatientModule"				type="M"/>
+		<invokemodule name="SpecimenIdentificationModule"		type="U" condition="count(SpecimenAccessionNumber) &gt; 0 or count(SpecimenSequence) &gt; 0"/>
+		<invokemodule name="ClinicalTrialSubjectModule"			type="U" condition="count(ClinicalTrialSponsorName) &gt; 0 or count(ClinicalTrialProtocolID) &gt; 0
+												 or count(ClinicalTrialProtocolName) &gt; 0 or count(ClinicalTrialSiteID) &gt; 0
+												 or count(ClinicalTrialSiteName) &gt; 0 or count(ClinicalTrialSubjectID) &gt; 0
+												 or count(ClinicalTrialSubjectReadingID) &gt; 0"/>
+		<invokemodule name="GeneralStudyModule"				type="M"/>
+		<invokemodule name="PatientStudyModule"				type="U" condition="count(AdmittingDiagnosesDescription) &gt; 0 or count(AdmittingDiagnosesCodeSequence) &gt; 0
+												 or count(PatientAge) &gt; 0 or count(PatientSize) &gt; 0
+												 or count(PatientWeight) &gt; 0 or count(PatientSizeCodeSequence) &gt; 0 or count(Occupation) &gt; 0
+												 or count(AdditionalPatientHistory) &gt; 0"/>
+		<invokemodule name="ClinicalTrialStudyModule" 			type="U" condition="count(ClinicalTrialTimePointID) &gt; 0 or count(ClinicalTrialTimePointDescription) &gt; 0"/>
+		<invokemodule name="GeneralSeriesModule"			type="M"/>
+		<invokemodule name="ClinicalTrialSeriesModule"			type="U" condition="count(ClinicalTrialCoordinatingCenterName) &gt; 0"/>
+		<invokemodule name="MRSeriesModule"				type="M"/>
+		<invokemodule name="FrameOfReferenceModule"			type="M"/>
+		<invokemodule name="SynchronizationModule" 			type="U" condition="count(SynchronizationFrameOfReferenceUID) &gt; 0 or count(SynchronizationTrigger) &gt; 0
+												 or count(TriggerSourceOrType) &gt; 0 or count(SynchronizationChannel) &gt; 0
+												 or count(AcquisitionTimeSynchronized) &gt; 0 or count(TimeSource) &gt; 0
+												 or count(TimeDistributionProtocol)"/>
+		<invokemodule name="GeneralEquipmentModule"			type="M"/>
+		<invokemodule name="EnhancedGeneralEquipmentModule"			type="U"/>
+		<invokemodule name="ImagePixelModule"				type="M"/>
+		<invokemodule name="EnhancedContrastBolusModule"		type="U" condition="count(ContrastBolusAgentSequence) &gt; 0 or count(//ContrastBolusUsageSequence) &gt; 0
+												 or count(ContrastBolusAgent) &gt; 0 or count(ContrastBolusAgentSequence) &gt; 0
+												 or count(ContrastBolusRoute) &gt; 0 or count(ContrastBolusAdministrationRouteSequence) &gt; 0
+												 or count(ContrastBolusVolume) &gt; 0 or count(ContrastBolusStartTime) &gt; 0
+												 or count(ContrastBolusStopTime) &gt; 0 or count(ContrastBolusTotalDose) &gt; 0
+												 or count(ContrastBolusFlowRate) &gt; 0 or count(ContrastBolusDuration) &gt; 0
+												 or count(ContrastBolusIngredient) &gt; 0 or count(ContrastBolusIngredientConcentration) &gt; 0"/>
+		<invokemodule name="ContrastBolusModule"		type="U" condition="count(ContrastBolusAgent) &gt; 0 or count(ContrastBolusAgentSequence) &gt; 0
+												 or count(ContrastBolusRoute) &gt; 0 or count(ContrastBolusAdministrationRouteSequence) &gt; 0
+												 or count(ContrastBolusVolume) &gt; 0 or count(ContrastBolusStartTime) &gt; 0
+												 or count(ContrastBolusStopTime) &gt; 0 or count(ContrastBolusTotalDose) &gt; 0
+												 or count(ContrastBolusFlowRate) &gt; 0 or count(ContrastBolusDuration) &gt; 0
+												 or count(ContrastBolusIngredient) &gt; 0 or count(ContrastBolusIngredientConcentration) &gt; 0"/>
+		<invokemodule name="MultiFrameFunctionalGroupsCommonModule"	type="M"/>
+		<invokemodule name="MultiFrameFunctionalGroupsForEnhancedMRImageModule"		type="M"/>
+		<invokemodule name="MultiFrameDimensionModule"			type="U"/>
+		<invokemodule name="CardiacSynchronizationModule"		type="U" condition="count(CardiacSynchronizationTechnique) &gt; 0 or count(CardiacSignalSource) &gt; 0
+												 or count(CardiacRRIntervalSpecified) &gt; 0 or count(CardiacBeatRejectionTechnique) &gt; 0
+												 or count(LowRRValue) &gt; 0 or count(HighRRValue) &gt; 0
+												 or count(IntervalsAcquired) &gt; 0 or count(IntervalsRejected) &gt; 0
+												 or count(//CardiacSynchronizationSequence) &gt; 0"/>
+		<invokemodule name="RespiratorySynchronizationModule"		type="U" condition="count(RespiratoryMotionCompensationTechnique) &gt; 0 or count(RespiratorySignalSource) &gt; 0"/>
+		<invokemodule name="BulkMotionSynchronizationModule"		type="U" condition="count(BulkMotionCompensationTechnique) &gt; 0 or count(BulkMotionSignalSource) &gt; 0"/>
+		<invokemodule name="AcquisitionContextModule"			type="M"/>
+		<invokemodule name="EnhancedMRImageModule"			type="M"/>
+		<invokemodule name="SOPCommonModule"				type="M"/>
+	</defineiod>
+
 	<defineiod name="MRSpectroscopy" sopclass="1.2.840.10008.5.1.4.1.1.4.2">
 		<invokemodule name="FileMetaInformationModule"			type="M"/>
 		<invokemodule name="PatientModule"				type="M"/>
